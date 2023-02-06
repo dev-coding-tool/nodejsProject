@@ -41,7 +41,6 @@ app.post('/api/users/register', (req, res) => {
     if(err) return res.json({success: false, err})
     return res.status(200).json({
       success: true
-
     })
   });
 })
@@ -86,7 +85,7 @@ app.get('/api/users/auth', auth, (req,res) => {
 app.get('/api/users/logout', auth, (req, res) => {
   User.findOneAndUpdate({_id: req.user._id},{token: ""}, (err, user) => {
     if(err) return res.json({success: false, err});
-    return res.status(200).send({
+    return res.cookie("x_auth", "").status(200).send({
       success: true
     })
   })
