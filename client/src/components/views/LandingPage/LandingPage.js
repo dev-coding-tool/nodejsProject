@@ -2,6 +2,7 @@ import React,{useEffect} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import { Button } from "antd";
 
 function LandingPage() {
   useEffect(() => {
@@ -28,10 +29,11 @@ function LandingPage() {
   }
 
   return (
-    <div style={{display:'flex', justifyContent:'center', alignItems:'center', width: '100%', height: '100vh'}}>
+    <div>
       <h2>시작 페이지</h2>
-      { isLogin && <button onClick={onClickLogoutHandler}> 로그아웃 </button> }
-      { !isLogin && <button onClick={onClickLoginHandler}> 로그인 </button> }
+      <br/>
+      { isLogin && <Button onClick={onClickLogoutHandler}> 로그아웃 </Button> }
+      { !isLogin && <Button onClick={onClickLoginHandler}> 로그인 </Button> }
     </div>
   )
 }
